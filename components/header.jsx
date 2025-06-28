@@ -134,11 +134,17 @@ export default async function Header() {
             </Link>
           )}
           {/* this tells that when user is not signed in, show the sign in button */}
-          <SignedOut>
-            <SignInButton>
-              <Button variant="secondary">Sign In</Button>
-            </SignInButton>
-          </SignedOut>
+         <SignedOut>
+  <SignInButton>
+    <Button
+      variant="secondary"
+      className="transition-colors duration-200 hover:bg-emerald-800 hover:text-white hover:border-emerald-900 cursor-pointer"
+    >
+      Sign In
+    </Button>
+  </SignInButton>
+</SignedOut>
+
           {/* this tells that when user is signed in, show the user button */}
           <SignedIn>
             <UserButton

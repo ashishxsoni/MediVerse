@@ -7,15 +7,15 @@ import { PageHeader } from "@/components/page-header";
 /* show the docotrs listing page for a specific specialty */
 // The page is accessed via a URL like /doctors/General%20Physician
 export default async function DoctorSpecialtyPage({ params }) {
-  const { encodedspecialty } = params; //If the input is URL-encoded (e.g., "General%20Physician"),
+  let { specialty } = params; //If the input is URL-encoded (e.g., "General%20Physician"),
   // this converts it into a readable string ("General Physician").
 
   //to solve this either use 
   // specialty.split("%20").join(" "),
 
   // decode using this JS inbuit function
-  const specialty = decodeURIComponent(specialty);
-
+   specialty = decodeURIComponent(specialty);
+  console.log("Specialty:", specialty);
   // Redirect to main doctors page if no specialty is provided
   if (!specialty) {
     redirect("/doctors");

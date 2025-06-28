@@ -10,7 +10,7 @@ export default function CTASection() {
       <div className="container mx-auto px-4">
         <Card className="bg-gradient-to-r from-emerald-900/30 to-emerald-950/20 border-emerald-800/20">
           <CardContent className="p-8 md:p-12 lg:p-16 relative overflow-hidden">
-            <div className="max-w-2xl relative z-10">
+            <div className="max-w-2xl relative">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                 Take charge of your health, today
               </h2>

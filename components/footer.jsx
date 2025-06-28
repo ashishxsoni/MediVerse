@@ -8,7 +8,7 @@ export default function Footer() {
         
         {/* Branding / Text */}
         <div className="text-center md:text-left">
-          <p className="text-sm text-gray-300">
+          <p className="text-m text-gray-300">
             © {new Date().getFullYear()}{" "}
             <span className="text-emerald-400 font-semibold">Ashish Soni</span>. All rights reserved.
           </p>
