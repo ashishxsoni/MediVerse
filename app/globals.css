@@ -125,15 +125,15 @@
 
 /* not valid in new tailwind version */
 
-/* @utility gradient {
+@utility gradient {
   @apply bg-gradient-to-b from-emerald-500 to-teal-400;
 }
 
 @utility gradient-title {
   @apply gradient font-bold text-transparent bg-clip-text pb-1 pr-2;
-} */
-
-/* @layer utilities { */
+}
+/* 
+@layer utilities {
 
 .gradient {
   @apply bg-gradient-to-b from-emerald-500 to-teal-400;
@@ -143,4 +143,4 @@
 }
 
 
-/* } */
+} */

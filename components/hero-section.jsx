@@ -1,8 +1,10 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { TypeAnimation } from "react-type-animation";
 
 export default function HeroSection() {
   return (
@@ -10,6 +12,7 @@ export default function HeroSection() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
+            {/* Badge */}
             <Badge
               variant="outline"
               className="bg-emerald-900/30 border-emerald-700/30 px-4 py-2 text-emerald-400 text-sm font-medium"
@@ -17,16 +20,36 @@ export default function HeroSection() {
               Consult with care, anytime
             </Badge>
 
+            {/* Heading */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
               Talk to a doctor <br />
               <span className="gradient-title">from the comfort of home</span>
             </h1>
 
+            {/* Typing Effect with Gradient */}
+            <div className="text-lg md:text-xl font-semibold gradient-title">
+              <TypeAnimation
+                sequence={[
+                  "Book Appointments Instantly",
+                  2000,
+                  "Consult Real Doctors via Video",
+                  2000,
+                  "Secure & Private Healthcare",
+                  2000,
+                ]}
+                speed={60}
+                 deletionSpeed={50}
+                repeat={Infinity}
+              />
+            </div>
+
+            {/* Paragraph */}
             <p className="text-muted-foreground text-lg md:text-xl max-w-md">
               Our platform helps you book appointments, consult 1-on-1 via video,
               and manage your health with ease — all in one secure place.
             </p>
 
+            {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 asChild
@@ -49,6 +72,7 @@ export default function HeroSection() {
             </div>
           </div>
 
+          {/* Right Side Image */}
           <div className="relative h-[400px] lg:h-[500px] rounded-xl overflow-hidden">
             <Image
               src="/banner2.png"

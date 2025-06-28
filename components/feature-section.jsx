@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CalendarHeart, Video, MessageCircle } from "lucide-react"; // replace with your own icons if needed
-import  features from "@/lib/data";
+import  {features} from "@/lib/data";
 
 export default function FeatureSection() {
   return (
