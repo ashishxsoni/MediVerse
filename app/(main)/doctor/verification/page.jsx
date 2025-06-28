@@ -87,8 +87,9 @@ export default async function VerificationPage() {
               >
                 <Link href="/">Back to Home</Link>
               </Button>
-
-              {isRejected ? (
+              
+              {/* THIS FEATURE WILL BE AVAILABLE SOON , WORKING ON IT  */}
+              {/* {isRejected ? (
                 <Button
                   asChild
                   className="bg-emerald-600 hover:bg-emerald-700"
@@ -102,7 +103,7 @@ export default async function VerificationPage() {
                 >
                   <Link href="/contact-support">Contact Support</Link>
                 </Button>
-              )}
+              )} */}
             </div>
           </CardContent>
         </Card>

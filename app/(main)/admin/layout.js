@@ -19,7 +19,7 @@ export default async function AdminLayout({ children }) {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 pt-30 pb-20">
       <PageHeader icon={<ShieldCheck />} title="Admin Settings" />
 
       {/* Vertical tabs on larger screens / Horizontal tabs on mobile */}

@@ -15,8 +15,11 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "MediVerse-Doctors Appointment App",
+  title: "MediVerse-Doctors Consultation App",
   description: "Connect with doctors anytime, anywhere",
+  icons: {
+    icon: "/favicon.png", // or /favicon.ico
+  },
 };
 
 export default function RootLayout({ children }) {

@@ -128,7 +128,7 @@ export function VerifiedDoctors({ doctors }) {
                             <>
                               <Badge
                                 variant="outline"
-                                className="bg-red-900/20 border-red-900/30 text-red-400"
+                                className="bg-red-900/20 border-red-900/30 text-red-400 px-3 py-1 text-sm h-8"
                               >
                                 Suspended
                               </Badge>
@@ -153,7 +153,7 @@ export function VerifiedDoctors({ doctors }) {
                             <>
                               <Badge
                                 variant="outline"
-                                className="bg-emerald-900/20 border-emerald-900/30 text-emerald-400"
+                                className="bg-emerald-900/20 border-emerald-900/30 text-emerald-400 px-3 py-1 text-sm h-8"
                               >
                                 Active
                               </Badge>

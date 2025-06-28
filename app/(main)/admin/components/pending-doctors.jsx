@@ -105,7 +105,8 @@ export function PendingDoctors({ doctors }) {
                       <div className="flex items-center gap-2 self-end md:self-auto">
                         <Badge
                           variant="outline"
-                          className="bg-amber-900/20 border-amber-900/30 text-amber-400"
+                          // className="bg-amber-900/20 border-amber-900/30 text-amber-400"
+                          className="bg-amber-900/20 border-amber-900/30 text-amber-400 px-3 py-1 text-sm h-8"
                           >
                           Pending
                         </Badge>
@@ -131,7 +132,7 @@ export function PendingDoctors({ doctors }) {
       {/* Doctor Details Dialog */}
       {selectedDoctor && (
         <Dialog open={!!selectedDoctor} onOpenChange={handleCloseDialog}>
-          <DialogContent className="max-w-3xl">
+          <DialogContent className="max-w-3xl my-10 max-h-[75vh] overflow-y-auto ">
             <DialogHeader>
               <DialogTitle className="text-xl font-bold text-white">
                 Doctor Verification Details
