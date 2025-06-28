@@ -31,14 +31,14 @@ export default function HeroSection() {
               <TypeAnimation
                 sequence={[
                   "Book Appointments Instantly",
-                  2000,
+                  1500,
                   "Consult Real Doctors via Video",
-                  2000,
+                  1500,
                   "Secure & Private Healthcare",
-                  2000,
+                  1500,
                 ]}
-                speed={60}
-                 deletionSpeed={50}
+                speed={40}
+                 deletionSpeed={60}
                 repeat={Infinity}
               />
             </div>
