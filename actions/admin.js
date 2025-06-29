@@ -111,7 +111,6 @@ export async function updateDoctorStatus(formData) {
 
 /**
  * Suspends or reinstates a doctor
- * to make any doctor suspend after verificantion if any issue arises
  */
 export async function updateDoctorActiveStatus(formData) {
   const isAdmin = await verifyAdmin();
