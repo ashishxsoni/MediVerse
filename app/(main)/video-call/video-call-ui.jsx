@@ -80,7 +80,7 @@ It renders into the DOM element with id="subscriber"
           (error) => {
             if (error) {
                // Handle errors if failed to subscribe
-              toast.error("Error connecting to other participant's stream");
+              toast.error("Error connecting to other participant&apos;s stream");
             }
           }
         );
@@ -338,7 +338,7 @@ It renders into the DOM element with id="subscriber"
                 {isAudioEnabled ? " Microphone on" : " Microphone off"}
               </p>
               <p className="text-muted-foreground text-sm mt-1">
-                When you're finished with your consultation, click the red
+                When you&apos;re finished with your consultation, click the red
                 button to end the call
               </p>
             </div>
