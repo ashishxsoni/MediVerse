@@ -34,7 +34,7 @@ export default async function OnboardingLayout({ children }) {
             Welcome to MediVerse
           </h1>
           <p className="text-muted-foreground text-lg">
-            Let us know how you&apos;sd like to use our platform
+            Let us know how you&apos;d like to use our platform
           </p>
         </div>
 
