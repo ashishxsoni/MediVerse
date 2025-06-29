@@ -74,7 +74,7 @@ export function AppointmentForm({ doctorId, slot, onBack, onComplete }) {
         </Label>
         <Textarea
           id="description"
-          placeholder="Please provide any details about your medical concern or what you'd like to discuss in the appointment..."
+          placeholder="Please provide any details about your medical concern or what you&apos;d like to discuss in the appointment..."
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           className="bg-background border-emerald-900/20 h-32"
