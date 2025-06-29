@@ -215,7 +215,7 @@ export async function approvePayout(formData) {
 
     // Check if doctor has enough credits
     if (payout.doctor.credits < payout.credits) {
-      throw new Error("Doctor doesn't have enough credits for this payout");
+      throw new Error("Doctor doesn&apos;t have enough credits for this payout");
     }
 
     // Process the payout in a transaction
