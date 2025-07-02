@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import { getDoctorsBySpecialty } from "@/actions/doctors-listing";
 import { DoctorCard } from "../components/doctor-card";
-import { PageHeader } from "@/components/page-header";
+import PageHeader from "@/components/page-header";
 
 
 /* show the docotrs listing page for a specific specialty */
