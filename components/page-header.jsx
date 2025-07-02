@@ -11,7 +11,7 @@ import { Button } from "./ui/button";
  * @param {string} props.backLink - URL to navigate back to (defaults to home)
  * @param {string} props.backLabel - Text for the back link (defaults to "Back to Home")
  */
-export function PageHeader({
+export default function PageHeader({
   icon,
   title,
   backLink = "/",
