@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 
 export default function PricingSection() {
   return (
-    <section id="pricing" className="py-20">
+    <section id="pricing" className="px-4 pt-22 pb-10">
       <div className="container mx-auto px-4">
         
         {/* Header with fade in */}

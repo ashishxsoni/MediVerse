@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden py-20">
+    <section className="relative overflow-hidden px-4 pt-22 pb-10">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
@@ -114,7 +114,7 @@ export default function HeroSection() {
               alt="Online doctor consultation"
               fill
               priority
-              className="object-cover md:pt-14 rounded-xl"
+              className="md:object-cover object-contain md:pt-14 rounded-xl"
             />
           </motion.div>
           

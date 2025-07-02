@@ -7,7 +7,7 @@ import PageHeader from "@/components/page-header";
 /* show the docotrs listing page for a specific specialty */
 // The page is accessed via a URL like /doctors/General%20Physician
 export default async function DoctorSpecialtyPage({ params }) {
-  let { specialty } = params; //If the input is URL-encoded (e.g., "General%20Physician"),
+  let { specialty } =await params; //If the input is URL-encoded (e.g., "General%20Physician"),
   // this converts it into a readable string ("General Physician").
 
   //to solve this either use 
@@ -18,6 +18,7 @@ export default async function DoctorSpecialtyPage({ params }) {
   console.log("Specialty:", specialty);
   // Redirect to main doctors page if no specialty is provided
   if (!specialty) {
+    console.warn("No specialty provided, redirecting to main doctors page.");
     redirect("/doctors");
   }
 

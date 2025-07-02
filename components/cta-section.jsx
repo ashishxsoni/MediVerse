@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 export default function CTASection() {
   return (
-    <section className="py-20">
+    <section className="px-4 pt-22 pb-10">
       <div className="container mx-auto px-4">
         
         {/* Card with fade in */}

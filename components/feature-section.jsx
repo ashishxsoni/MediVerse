@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 export default function FeatureSection() {
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="px-4 pt-22 pb-10 bg-muted/30">
       <div className="container mx-auto px-4">
         
         {/* Header with fade in */}

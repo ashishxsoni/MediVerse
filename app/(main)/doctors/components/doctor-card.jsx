@@ -10,6 +10,7 @@ import Link from "next/link";
  */
 
 export function DoctorCard({ doctor }) {
+  // console.log(doctor);
   return (
     <Card className="border-emerald-900/20 hover:border-emerald-700/40 transition-all">
       <CardContent>

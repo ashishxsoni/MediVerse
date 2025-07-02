@@ -100,22 +100,24 @@ export function DoctorProfile({ doctor, availableDays }) {
                   </span>
                 </div>
 
-                <Button
-                  onClick={toggleBooking}
-                  className="w-full bg-emerald-600 hover:bg-emerald-700 mt-4"
-                >
-                  {showBooking ? (
-                    <>
-                      Hide Booking
-                      <ChevronUp className="ml-2 h-4 w-4" />
-                    </>
-                  ) : (
-                    <>
-                      Book Appointment
-                      <ChevronDown className="ml-2 h-4 w-4" />
-                    </>
-                  )}
-                </Button>
+                {totalSlots > 0 && (
+                  <Button
+                    onClick={toggleBooking}
+                    className="w-full bg-emerald-600 hover:bg-emerald-700 mt-4"
+                  >
+                    {showBooking ? (
+                      <>
+                        Hide Booking
+                        <ChevronUp className="ml-2 h-4 w-4" />
+                      </>
+                    ) : (
+                      <>
+                        Book Appointment
+                        <ChevronDown className="ml-2 h-4 w-4" />
+                      </>
+                    )}
+                  </Button>
+                )}
               </div>
             </CardContent>
           </Card>
@@ -213,8 +215,8 @@ export function DoctorProfile({ doctor, availableDays }) {
                     </h3>
                     <p className="text-muted-foreground">
                       This doctor doesn&apos;t have any available appointment
-                      slots for the next 4 days. Please check back later or try
-                      another doctor.
+                      slots for the next 4 days. Please check again later or try
+                      another doctor availble.
                     </p>
                   </div>
                 )}

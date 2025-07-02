@@ -5,21 +5,29 @@ import { redirect } from "next/navigation";
 export default async function DoctorProfilePage({ params }) {
   const { id } = params;
 
-  try {
-    // Fetch doctor data and available slots in parallel
-    const [doctorData, slotsData] = await Promise.all([
-      getDoctorById(id),
-      getAvailableTimeSlots(id),
-    ]);
+  const [doctorResult, slotResult] = await Promise.all([
+    getDoctorById(id).catch((error) => {
+      console.error("Failed to fetch doctor:", error);
+      return null; // Return null if doctor fetch fails
+    }),
+    getAvailableTimeSlots(id).catch((error) => {
+      console.warn("Failed to fetch time slots:", error.message);
+      return { days: [] }; // Return empty array if slots fetch fails and stored in slotResult
+    }),
+  ]);
 
-    return (
-      <DoctorProfile
-        doctor={doctorData.doctor}
-        availableDays={slotsData.days || []}
-      />
-    );
-  } catch (error) {
-    console.error("Error loading doctor profile:", error);
-    redirect("/doctors");
+  // If no doctor found, redirect
+  if (!doctorResult?.doctor) {
+    return redirect("/doctors");
   }
+
+  // Use empty array if no slots
+  const slots = slotResult?.days || [];
+
+  return (
+    <DoctorProfile
+      doctor={doctorResult.doctor}
+      availableDays={slots}
+    />
+  );
 }
