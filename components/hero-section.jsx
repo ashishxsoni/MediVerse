@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden py-32">
+    <section className="relative overflow-hidden py-20">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           

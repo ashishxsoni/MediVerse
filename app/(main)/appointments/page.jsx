@@ -92,7 +92,7 @@ export default function PatientAppointmentsPage() {
   }, []);
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto py-20">
       <PageHeader
         icon={<Calendar />}
         title="My Appointments"
