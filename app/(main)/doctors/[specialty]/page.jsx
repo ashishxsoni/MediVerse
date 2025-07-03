@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { getDoctorsBySpecialty } from "@/actions/doctors-listing";
-import { DoctorCard } from "../components/doctor-card";
+import { DoctorCard } from "../_components/doctor-card";
 import PageHeader from "@/components/page-header";
 
 

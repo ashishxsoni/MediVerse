@@ -3,7 +3,7 @@ import { DoctorProfile } from "./_components/doctor-profile";
 import { redirect } from "next/navigation";
 
 export default async function DoctorProfilePage({ params }) {
-  const { id } = params;
+  const { id } = await params;
 
   const [doctorResult, slotResult] = await Promise.all([
     getDoctorById(id).catch((error) => {

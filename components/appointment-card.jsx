@@ -314,7 +314,7 @@ export function AppointmentCard({
 
       {/* Appointment Details Dialog */}
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="max-w-3xl my-10 max-h-[75vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="text-xl font-bold text-white">
               Appointment Details
