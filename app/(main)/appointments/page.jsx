@@ -9,17 +9,20 @@ import { Calendar, LoaderCircle } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function PatientAppointmentsPage() {
-  const {
-    data: appointments,
-    loading,
-    error,
-    fn: fetchAppointments,
-  } = useFetch(getPatientAppointments);
+ const {
+  data,
+  loading,
+  error,
+  fn: fetchAppointments,
+} = useFetch(getPatientAppointments);
+
+const appointments = data?.appointments || []; // ✅ safely extract the array
+
 
   useEffect(() => {
     fetchAppointments();
   }, []);
-
+    console.log("Appointments:", appointments);
   return (
     <div className="container mx-auto py-20">
       <PageHeader
