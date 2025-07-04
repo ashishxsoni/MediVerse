@@ -11,32 +11,39 @@
 
 **Try MediVerse now:** [https://medi-verse-000.vercel.app/](https://medi-verse-000.vercel.app/)
 
-![MediVerse Demo](images/screenshots/dashboard.png)
+![MediVerse Demo](public/screenshots/homepage.jpg)
 
 ## 📸 Screenshots
 
 <div align="center">
 
 ### 🏠 Home Page
-![Home Page](images/screenshots/homepage.png)
+![Home Page](public/screenshots/homepage.jpg)
+![Home Page](public/screenshots/onboarding-page.jpg)
 
 ### 👨‍⚕️ Doctor Directory
-![Doctor Directory](images/screenshots/doctors.png)
+![Doctor Directory](public/screenshots/homepage.jpg)
 
 ### 📅 Appointment Booking
-![Appointment Booking](images/screenshots/booking.png)
+![Appointment Booking](public/screenshots/schedule-appointment-1.jpg)
+![Appointment Booking](public/screenshots/schedule-appointment-2.jpg)
 
 ### 💬 Video Consultation
-![Video Consultation](images/screenshots/consultation.png)
+![Video Consultation](public/screenshots/homepage.jpg)
 
 ### 👤 Patient Dashboard
-![Patient Dashboard](images/screenshots/patient-dashboard.png)
+![Patient Dashboard](public/screenshots/search-for-specialities.jpg)
+![Patient Dashboard](public/screenshots/search-specialist-doctors.jpg)
+![Patient Dashboard](public/screenshots/patient-appointments.jpg)
 
 ### 🩺 Doctor Dashboard
-![Doctor Dashboard](images/screenshots/doctor-dashboard.png)
+![Doctor Dashboard](public/screenshots/doctor-payout-page.jpg)
+![Doctor Dashboard](public/screenshots/set-doctor-availibility.jpg)
+![Doctor Dashboard](public/screenshots/doctor-appointments.jpg)
 
 ### 🔧 Admin Panel
-![Admin Panel](images/screenshots/admin-panel.png)
+![Admin Panel](public/screenshots/admin-verified-docotor.jpg)
+![Admin Panel](public/screenshots/admin-verify-doctor.jpg)
 
 </div>
 
