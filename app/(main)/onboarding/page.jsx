@@ -36,6 +36,12 @@ export default function OnboardingPage() {
   const { loading, data, fn: submitUserRole } = useFetch(setUserRole); // we set the role through this 
 
   // React Hook Form setup with Zod validation
+  //register -> Connects an input field to the form state and validation.
+/*   You’re telling react-hook-form:
+    “Track this input under the key email”
+    “Handle its value, changes, and validation automatically”
+    “Include it in the final form data”
+     */
   const {
     register, // REGISTER FOR Track and validate this input field.
     handleSubmit,
