@@ -19,13 +19,12 @@
 
 ### 🏠 Home Page
 ![Home Page](public/screenshots/homepage.jpg)
+---
 ![Home Page](public/screenshots/onboarding-page.jpg)
-
-### 👨‍⚕️ Doctor Directory
-![Doctor Directory](public/screenshots/homepage.jpg)
 
 ### 📅 Appointment Booking
 ![Appointment Booking](public/screenshots/schedule-appointment-1.jpg)
+---
 ![Appointment Booking](public/screenshots/schedule-appointment-2.jpg)
 
 ### 💬 Video Consultation
@@ -33,16 +32,21 @@
 
 ### 👤 Patient Dashboard
 ![Patient Dashboard](public/screenshots/search-for-specialities.jpg)
+---
 ![Patient Dashboard](public/screenshots/search-specialist-doctors.jpg)
+---
 ![Patient Dashboard](public/screenshots/patient-appointments.jpg)
 
 ### 🩺 Doctor Dashboard
 ![Doctor Dashboard](public/screenshots/doctor-payout-page.jpg)
+---
 ![Doctor Dashboard](public/screenshots/set-doctor-availibility.jpg)
+---
 ![Doctor Dashboard](public/screenshots/doctor-appointments.jpg)
 
 ### 🔧 Admin Panel
 ![Admin Panel](public/screenshots/admin-verified-docotor.jpg)
+---
 ![Admin Panel](public/screenshots/admin-verify-doctor.jpg)
 
 </div>
