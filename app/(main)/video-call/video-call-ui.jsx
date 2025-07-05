@@ -93,7 +93,7 @@ It renders into the DOM element with id="subscriber"
 
         // THIS IS THE FIX - Initialize publisher AFTER session connects
         // insertmode- append , replace, before , after
-      /*  
+       /*  
        insertmode - append 
         Don’t wipe the existing content. Just insert the video inside this div.”
         The subscriber's video is added inside the div#subscriber, 

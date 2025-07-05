@@ -57,9 +57,8 @@ export default async function AdminLayout({ children }) {
           </TabsTrigger>
         </TabsList>
          {/* here we make it as col-span 3 with grid layout and for above it's 1 cols span */}
-        <div className="md:col-span-3">{
-        children
-        }</div> 
+        <div className="md:col-span-3">
+          {children}</div> 
       </Tabs>
     </div>
   );

@@ -102,6 +102,7 @@ export async function updateDoctorStatus(formData) {
     });
 
     revalidatePath("/admin");
+    revalidatePath("/doctor");
     return { success: true };
   } catch (error) {
     console.error("Failed to update doctor status:", error);
@@ -136,6 +137,8 @@ export async function updateDoctorActiveStatus(formData) {
     });
 
     revalidatePath("/admin");
+    revalidatePath("/doctor");
+
     return { success: true };
   } catch (error) {
     console.error("Failed to update doctor active status:", error);
@@ -220,7 +223,7 @@ export async function approvePayout(formData) {
 
     // Process the payout in a transaction
     await db.$transaction(async (tx) => {
-      // Update payout status to PROCESSED
+      // Update payout status to PROCESSED tx here worked as db
       await tx.payout.update({
         where: {
           id: payoutId,
@@ -255,6 +258,7 @@ export async function approvePayout(formData) {
     });
 
     revalidatePath("/admin");
+    revalidatePath("/doctor");
     return { success: true };
   } catch (error) {
     console.error("Failed to approve payout:", error);
