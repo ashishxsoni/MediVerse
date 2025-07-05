@@ -371,6 +371,8 @@ export async function getAvailableTimeSlots(doctorId) {
           continue;
         }
 
+//         The some() method checks if at least one element in the array passes a test (callback function).
+// It returns true as soon as one element satisfies the condition, otherwise false.
         const overlaps = existingAppointments.some((appointment) => {
           const aStart = new Date(appointment.startTime);
           const aEnd = new Date(appointment.endTime);

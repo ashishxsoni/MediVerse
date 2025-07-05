@@ -70,7 +70,7 @@ export function AppointmentCard({
   // Format date and time
   const formatDateTime = (dateString) => {
     try {
-      return format(new Date(dateString), "MMMM d, yyyy 'at' h:mm a");
+      return format(new Date(dateString), "MMMM d, yyyy 'at' h:mm a"); // like in "January 1, 2023 at 10:00 AM"
     } catch (e) {
       return "Invalid date";
     }
@@ -79,7 +79,7 @@ export function AppointmentCard({
   // Format time only
   const formatTime = (dateString) => {
     try {
-      return format(new Date(dateString), "h:mm a");
+      return format(new Date(dateString), "h:mm a"); // like as "10:00 AM"
     } catch (e) {
       return "Invalid time";
     }
@@ -222,7 +222,7 @@ export function AppointmentCard({
     );
   };
 
-  // Determine other party information based on user role
+  // Determine other party information based on user role if patient than doctor vice-versa
   const otherParty =
     userRole === "DOCTOR" ? appointment.patient : appointment.doctor;
 

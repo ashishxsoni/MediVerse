@@ -58,14 +58,18 @@ export default async function DoctorDashboardPage() {
         </TabsTrigger>
       </TabsList>
       <div className="md:col-span-3">
+      {/* tab content to show doctor appointments using Doctor card */}
         <TabsContent value="appointments" className="border-none p-0">
           <DoctorAppointmentsList
             appointments={appointmentsData.appointments || []}
-          />
+            />
         </TabsContent>
+            {/* tab content to show doctor availibitliy and manage that using Availibitlity Setting */}
+           
         <TabsContent value="availability" className="border-none p-0">
           <AvailabilitySettings slots={availabilityData.slots || []} />
         </TabsContent>
+         {/* tab content to show doctor earnings using DoctorEarings */}
         <TabsContent value="earnings" className="border-none p-0">
           <DoctorEarnings
             earnings={earningsData.earnings || {}}

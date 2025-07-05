@@ -5,6 +5,87 @@ import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
 
 /**
+ * Get doctor's upcoming appointments
+ */
+
+export async function getDoctorAppointments() {
+  const { userId } = await auth();
+
+  if (!userId) {
+    throw new Error("Unauthorized");
+  }
+
+  try {
+    const doctor = await db.user.findUnique({
+      where: {
+        clerkUserId: userId,
+        role: "DOCTOR",
+      },
+    });
+
+    if (!doctor) {
+      throw new Error("Doctor not found");
+    }
+
+    const appointments = await db.appointment.findMany({
+      where: {
+        doctorId: doctor.id,
+        status: {
+          in: ["SCHEDULED"],
+        },
+      },
+      include: {
+        patient: true,
+      },
+      orderBy: {
+        startTime: "asc",
+      },
+    });
+
+    return { appointments };
+  } catch (error) {
+    throw new Error("Failed to fetch appointments " + error.message);
+  }
+}
+
+/**
+ * Get doctor's current availability slots
+ */
+export async function getDoctorAvailability() {
+  const { userId } = await auth();
+
+  if (!userId) {
+    throw new Error("Unauthorized");
+  }
+
+  try {
+    const doctor = await db.user.findUnique({
+      where: {
+        clerkUserId: userId,
+        role: "DOCTOR",
+      },
+    });
+
+    if (!doctor) {
+      throw new Error("Doctor not found");
+    }
+
+    const availabilitySlots = await db.availability.findMany({
+      where: {
+        doctorId: doctor.id,
+      },
+      orderBy: {
+        startTime: "asc",
+      },
+    });
+
+    return { slots: availabilitySlots };
+  } catch (error) {
+    throw new Error("Failed to fetch availability slots " + error.message);
+  }
+}
+
+/**
  * Set doctor's availability slots
  */
 export async function setAvailabilitySlots(formData) {
@@ -51,7 +132,7 @@ export async function setAvailabilitySlots(formData) {
     if (existingSlots.length > 0) {
       // Don't delete slots that already have appointments
       const slotsWithNoAppointments = existingSlots.filter(
-        (slot) => !slot.appointment
+         (slot) => slot.status === 'AVAILABLE'
       );
 
       if (slotsWithNoAppointments.length > 0) {
@@ -76,6 +157,7 @@ export async function setAvailabilitySlots(formData) {
     });
 
     revalidatePath("/doctor");
+    revalidatePath("/appointments");
     return { success: true, slot: newSlot };
   } catch (error) {
     console.error("Failed to set availability slots:", error);
@@ -84,9 +166,9 @@ export async function setAvailabilitySlots(formData) {
 }
 
 /**
- * Get doctor's current availability slots
+ * Add notes to an appointment
  */
-export async function getDoctorAvailability() {
+export async function addAppointmentNotes(formData) {
   const { userId } = await auth();
 
   if (!userId) {
@@ -105,64 +187,44 @@ export async function getDoctorAvailability() {
       throw new Error("Doctor not found");
     }
 
-    const availabilitySlots = await db.availability.findMany({
-      where: {
-        doctorId: doctor.id,
-      },
-      orderBy: {
-        startTime: "asc",
-      },
-    });
+    const appointmentId = formData.get("appointmentId");
+    const notes = formData.get("notes");
 
-    return { slots: availabilitySlots };
-  } catch (error) {
-    throw new Error("Failed to fetch availability slots " + error.message);
-  }
-}
-
-/**
- * Get doctor's upcoming appointments
- */
-
-export async function getDoctorAppointments() {
-  const { userId } = await auth();
-
-  if (!userId) {
-    throw new Error("Unauthorized");
-  }
-
-  try {
-    const doctor = await db.user.findUnique({
-      where: {
-        clerkUserId: userId,
-        role: "DOCTOR",
-      },
-    });
-
-    if (!doctor) {
-      throw new Error("Doctor not found");
+    if (!appointmentId || !notes) {
+      throw new Error("Appointment ID and notes are required");
     }
 
-    const appointments = await db.appointment.findMany({
+    // Verify the appointment belongs to this doctor
+    const appointment = await db.appointment.findUnique({
       where: {
+        id: appointmentId,
         doctorId: doctor.id,
-        status: {
-          in: ["SCHEDULED"],
-        },
-      },
-      include: {
-        patient: true,
-      },
-      orderBy: {
-        startTime: "asc",
       },
     });
 
-    return { appointments };
+    if (!appointment) {
+      throw new Error("Appointment not found");
+    }
+
+    // Update the appointment notes
+    const updatedAppointment = await db.appointment.update({
+      where: {
+        id: appointmentId,
+      },
+      data: {
+        notes,
+      },
+    });
+
+    revalidatePath("/doctor");
+    revalidatePath("/appointments");
+    return { success: true, appointment: updatedAppointment };
   } catch (error) {
-    throw new Error("Failed to fetch appointments " + error.message);
+    console.error("Failed to add appointment notes:", error);
+    throw new Error("Failed to update notes: " + error.message);
   }
 }
+
 
 /**
  * Cancel an appointment (can be done by both doctor and patient)
@@ -267,12 +329,9 @@ export async function cancelAppointment(formData) {
       });
     });
 
-    // Determine which path to revalidate based on user role
-    if (user.role === "DOCTOR") {
-      revalidatePath("/doctor");
-    } else if (user.role === "PATIENT") {
-      revalidatePath("/appointments");
-    }
+    // revalidate for both appointments and doctor pages
+   revalidatePath("/appointments");
+revalidatePath("/doctor");
 
     return { success: true };
   } catch (error) {
@@ -281,64 +340,6 @@ export async function cancelAppointment(formData) {
   }
 }
 
-/**
- * Add notes to an appointment
- */
-export async function addAppointmentNotes(formData) {
-  const { userId } = await auth();
-
-  if (!userId) {
-    throw new Error("Unauthorized");
-  }
-
-  try {
-    const doctor = await db.user.findUnique({
-      where: {
-        clerkUserId: userId,
-        role: "DOCTOR",
-      },
-    });
-
-    if (!doctor) {
-      throw new Error("Doctor not found");
-    }
-
-    const appointmentId = formData.get("appointmentId");
-    const notes = formData.get("notes");
-
-    if (!appointmentId || !notes) {
-      throw new Error("Appointment ID and notes are required");
-    }
-
-    // Verify the appointment belongs to this doctor
-    const appointment = await db.appointment.findUnique({
-      where: {
-        id: appointmentId,
-        doctorId: doctor.id,
-      },
-    });
-
-    if (!appointment) {
-      throw new Error("Appointment not found");
-    }
-
-    // Update the appointment notes
-    const updatedAppointment = await db.appointment.update({
-      where: {
-        id: appointmentId,
-      },
-      data: {
-        notes,
-      },
-    });
-
-    revalidatePath("/doctor");
-    return { success: true, appointment: updatedAppointment };
-  } catch (error) {
-    console.error("Failed to add appointment notes:", error);
-    throw new Error("Failed to update notes: " + error.message);
-  }
-}
 
 /**
  * Mark an appointment as completed (only by doctor after end time)
@@ -409,6 +410,7 @@ export async function markAppointmentCompleted(formData) {
     });
 
     revalidatePath("/doctor");
+    revalidatePath("/appointments");
     return { success: true, appointment: updatedAppointment };
   } catch (error) {
     console.error("Failed to mark appointment as completed:", error);

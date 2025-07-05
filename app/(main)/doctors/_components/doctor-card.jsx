@@ -43,6 +43,7 @@ export function DoctorCard({ doctor }) {
               {doctor.specialty} • {doctor.experience} years experience
             </p>
 
+              {/* Tumne line-clamp-2 class use kiya hai (Tailwind plugin), jo description ko max 2 lines me trim karta hai. */}
             <div className="mt-4 line-clamp-2 text-sm text-muted-foreground mb-4">
               {doctor.description}
             </div>

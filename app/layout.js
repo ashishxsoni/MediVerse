@@ -41,14 +41,11 @@ export default function RootLayout({ children }) {
             disableTransitionOnChange
           >
             <Header />
-            <main className="min-h-screen">{children}</main>
+            <main className="min-h-screen">
+              {children}
+            </main>
             <Toaster richColors />
             <Footer />
-            {/* <footer className="bg-muted/50 py-12">
-              <div className="container mx-auto px-4 text-center text-gray-200">
-                <p>Made with 💗 by Ashish Soni</p>
-              </div>
-            </footer> */}
           </ThemeProvider>
         </body>
       </html>

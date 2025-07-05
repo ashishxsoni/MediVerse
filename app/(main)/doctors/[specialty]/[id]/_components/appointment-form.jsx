@@ -6,9 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { format } from "date-fns";
 import { Loader2, Clock, ArrowLeft, Calendar, CreditCard } from "lucide-react";
-import { bookAppointment } from "@/actions/appointments";
 import { toast } from "sonner";
 import useFetch from "@/hooks/use-fetch";
+import { bookAppointment } from "@/actions/appointments";
 
 export function AppointmentForm({ doctorId, slot, onBack, onComplete }) {
   const [description, setDescription] = useState("");
@@ -31,15 +31,6 @@ export function AppointmentForm({ doctorId, slot, onBack, onComplete }) {
     await submitBooking(formData);
   };
 
-  // Handle response after booking attempt
-  // useEffect(() => {
-  //   if (data) {
-  //     if (data.success) {
-  //       toast.success("Appointment booked successfully!");
-  //       onComplete();
-  //     }
-  //   }
-  // }, [data]);
   useEffect(() => {
     if (data?.success) {
       toast.success("Appointment booked successfully!");

@@ -60,7 +60,7 @@ doctor	A relation field that links this model to the User model
 @relation(fields: [doctorId], references: [id])	Tells Prisma: "doctorId refers to the id field in the User model"
 onDelete: Cascade	If a doctor is deleted, their availabilities will also be deleted automatically
 
-🧠 Internally
+ Internally
 This creates a FOREIGN KEY (doctorId) REFERENCES User(id) ON DELETE CASCADE in your PostgreSQL database.
 */
 model Availability {
